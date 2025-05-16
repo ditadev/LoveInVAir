@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   showScrollTop = false;
   contactForm!: FormGroup;
   form!:Form;
-  message = "Jarek Farms produces high-quality agricultural products in an ethical, sustainable, traceable, and affordable manner. We prioritize animal welfare and environmental sustainability, making a positive impact in Nigeria's agricultural sector. Join us on this journey towards a brighter future for Nigeria's agricultural industry.";
+  message = "Welcome to our wedding hub! We're so happy you're here! Browse through our info section for all the essential details, follow our simple guidelines, and most importantly—come ready to celebrate and have fun with us! Made with love to make your experience awesome. #everydayisdayone #loveInVAir25"
 
   constructor(
     @Inject(DOCUMENT) private document: Document, 
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     setTimeout(() => {
       this.showContactButton = true;
-    }, 5200);
+    }, 5500);
     setTimeout(() => {
       this.showHeading = true;
     }, 1000);
