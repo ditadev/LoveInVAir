@@ -36,15 +36,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   showHeading = false;
   showTyping = false;
   showNav = false;
-  showSuccess!: boolean;
   public isVisible: boolean[] = [false, false, false];
   interval = 15; 
   private subscription: Subscription = new Subscription();
   typedMessage = '';
   slideIndex = 0;
   showScrollTop = false;
-  contactForm!: FormGroup;
-  form!:Form;
   message = "Welcome to our wedding hub! We're so happy you're here! Browse through our info section for all the essential details, follow our simple guidelines, and most importantly—come ready to celebrate and have fun with us! Made with love to make your experience awesome. #everydayisdayone #loveInVAir25"
 
   constructor(
@@ -88,16 +85,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     targets.forEach((target: Element) => {
       observer.observe(target);
     });
-    
-    this.form = {} as Form;
-
-    this.contactForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      emailAddress: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required, Validators.pattern(/^(\+?\d{1,3}[- ]?)?\d{10}$/)]],
-      message: ['', [Validators.required]]
-    });
   }
 
   ngAfterViewInit(): void {
@@ -111,14 +98,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     }, { threshold: 0.5 });
 
     sectionObserver.observe(this.section!.nativeElement);
-  }
-
-  submitForm(): void {
-    this.showSuccess = true;
-    setTimeout(() => {
-      this.showSuccess = false;
-    }, 5000);
-    this.contactForm.reset();
   }
 
   ngOnDestroy(): void {
